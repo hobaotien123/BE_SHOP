@@ -8,6 +8,7 @@ const uploadAccountController = (req, res) => {
     champCount,
     skinCount,
     priceAccount,
+    images
   } = req.body;
   if (userNameAccount && passwordAccount) {
     const uploadAccount = new Account({
@@ -16,6 +17,7 @@ const uploadAccountController = (req, res) => {
       champCount,
       skinCount,
       priceAccount,
+      images,
       status: true,
     });
     uploadAccount.save().then(() => console.log("Ok"));

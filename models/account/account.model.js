@@ -7,6 +7,7 @@ var accountSchema = new mongoose.Schema({
   skinCount: Number,
   priceAccount: Number,
   status: Boolean,
+  images: Array,
 });
 
 var Account = mongoose.model(

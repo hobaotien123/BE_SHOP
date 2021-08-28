@@ -1,6 +1,7 @@
 const express = require("express");
 var bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+var cors = require("cors");
 
 // routers
 const userRouter = require("./routes/users/user.router");
@@ -10,9 +11,10 @@ const transitionRouter = require("./routes/transition/transition.router");
 const accoutRouter = require("./routes/account/account.route");
 const paymentRouter = require("./routes/payment/payment.router");
 
-const port = 3000;
+const port = 3001;
 
 const app = express();
+app.use(cors());
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
@@ -31,7 +33,8 @@ app.post("/", (req, res) => {
   console.log("req", req.body);
 
   // console.log("res", res);
-  res.send("Ok");
+
+  res.status(200).json({ id: 1, data: "1" });
 });
 
 app.post("/notify", (req, res) => {
